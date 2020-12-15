@@ -5,54 +5,55 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PHP Snack</title>
 </head>
-<body>
+<body style="font-family: Sans-Serif">
 
     <?php // vars
         $qry_name = $_GET['name'];
         $qry_email = $_GET['email'];
         $qry_age = $_GET['age'];
+        // demo query string ?name=Luca&email=luca@gmail.com&age=21
     ?>
 
 
-    <h4>
+    <p>
         <?php
             if ( empty($qry_name) ) {
-                echo 'name is empty';
+                echo 'Name is empty';
             } elseif ( strlen($qry_name) <= 3 ) {
-                echo 'name: Add more than 3 digits';
+                echo 'Name: Add more than 3 digits';
             } else {
-                echo 'name success';
+                echo "Name success <br> Name: <strong style=\"text-decoration: underline\">$qry_name</strong>";
             }
         ?>
-    </h4>
+    </p>
 
-    <h4>
+    <p>
         <?php
             if ( empty($qry_email) ) {
-                echo 'email is empty';
+                echo 'Email is empty';
             } elseif ( strpos($qry_email, '@') ) {
                 if ( strpos($qry_email, '.') ) {
-                    echo 'email success';
+                    echo "Email success <br> Username: <strong style=\"text-decoration: underline\">$qry_email</strong>";
                 } else {
-                    echo 'email dot missing';
+                    echo 'Email dot missing';
                 }
             } else {
-                echo 'email @ missing';
+                echo 'Email @ missing';
             }
         ?>
-    </h4>
+    </p>
 
-    <h4>
+    <p>
         <?php
             if ( empty($qry_age) ) {
-                echo 'age is empty';
+                echo 'Age is empty';
             } elseif ( is_numeric($qry_age) === false ) {
-                echo 'age is not a number';
+                echo 'Age is not a number';
             } else {
-                echo 'age success';
+                echo "Age success <br> Age: <strong style=\"text-decoration: underline\">$qry_age</strong>";
             }
         ?>
-    </h4>
+    </p>
 
     
 </body>
