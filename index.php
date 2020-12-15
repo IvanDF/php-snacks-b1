@@ -12,6 +12,13 @@
         $qry_email = $_GET['email'];
         $qry_age = $_GET['age'];
         // demo query string ?name=Luca&email=luca@gmail.com&age=21
+
+        $checked_name = false;
+        $checked_email = false;
+        $checked_age = false;
+
+        // ADD DOT CHECK AFTER @
+        $check_email = explode( '@', $qry_email)
     ?>
 
 
@@ -23,6 +30,7 @@
                 echo 'Name: Add more than 3 digits';
             } else {
                 echo "Name success <br> Name: <strong style=\"text-decoration: underline\">$qry_name</strong>";
+                $checked_name = true;
             }
         ?>
     </p>
@@ -32,8 +40,9 @@
             if ( empty($qry_email) ) {
                 echo 'Email is empty';
             } elseif ( strpos($qry_email, '@') ) {
-                if ( strpos($qry_email, '.') ) {
+                if ( strpos($check_email[1], '.') ) {
                     echo "Email success <br> Username: <strong style=\"text-decoration: underline\">$qry_email</strong>";
+                    $checked_email = true;
                 } else {
                     echo 'Email dot missing';
                 }
@@ -51,9 +60,19 @@
                 echo 'Age is not a number';
             } else {
                 echo "Age success <br> Age: <strong style=\"text-decoration: underline\">$qry_age</strong>";
+                $checked_age = true;
             }
         ?>
     </p>
+    <h1>
+        <?php
+            if ( ( $checked_age === true ) && ( $checked_name === true ) && ( $checked_email === true ) ) {
+                echo "Accesso consentito <br> Ciao $qry_name!";
+            } else {
+                echo 'Accesso negato';
+            }
+        ?>
+    </h1>
 
     
 </body>
