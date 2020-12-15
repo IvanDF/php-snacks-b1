@@ -44,7 +44,7 @@
                     echo "Email success <br> Username: <strong style=\"text-decoration: underline\">$qry_email</strong>";
                     $checked_email = true;
                 } else {
-                    echo 'Email dot missing';
+                    echo 'Email dot missing after @';
                 }
             } else {
                 echo 'Email @ missing';
@@ -66,10 +66,10 @@
     </p>
     <h1>
         <?php
-            if ( ( $checked_age === true ) && ( $checked_name === true ) && ( $checked_email === true ) ) {
-                echo "Accesso consentito <br> Ciao $qry_name!";
+            if ( $checked_age && $checked_name && $checked_email ) {
+                echo "Allowed access <br> Ciao $qry_name!";
             } else {
-                echo 'Accesso negato';
+                echo 'Access denied';
             }
         ?>
     </h1>
